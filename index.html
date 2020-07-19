@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="javascripts/scripts.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="container mx-auto">
+    <h1>Split Travel Expenses with Friends</h1>
+    <form class="mb-3">
+      <!-- Location -->
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Location</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Where did you go?" id="location">
+      </div>
+      <!-- Date -->
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Date</span>
+        </div>
+        <div class="input-group-prepend">
+          <span class="input-group-text">From</span>
+        </div>
+        <input type="date" class="form-control" placeholder="mm/dd/yyyy">
+        <div class="input-group-prepend">
+          <span class="input-group-text">To</span>
+        </div>
+        <input type="date" class="form-control" placeholder="mm/dd/yyyy">
+      </div>
+      <!-- Number of travelers -->   
+      <table class="table table-borderless" id="tableTravellers">
+          <tr class="d-flex">
+              <th class="col-2">
+                <span class="input-group-text">List of Travellers</span>
+              </th>
+          </tr>
+          <tr class="d-flex" id="per_1">
+            <td class="col-2">
+              <div class="input-group">
+                <input id="name_1" type="text" class="form-control">
+              </div>
+            </td>
+          </tr>
+      </table>
+      <button class="btn btn-primary mx-auto my-auto" id = "addTraveller" type="button">Add</button>
+      <!-- <button class="btn btn-primary" id = "remTraveller" type="button">Remove</button> -->
+      <button class="btn btn-primary mx-auto my-auto" id = "updateTraveller" type="button">Update</button>
+      <!-- Expense -->
+      <h3>List of Expenses</h3>
+      <div class="input-group mb-3">
+        <table class="table table-borderless" id="tableExpense">
+          <tr class="d-flex">
+            <th class="col-2">
+              <span class="input-group-text">Date</span>
+            </th>
+            <th class="col-2">
+              <span class="input-group-text">Category</span>
+            </th>
+            <th class="col-2">
+              <span class="input-group-text">Amount</span>
+            </th>
+            <th class="col-2">
+              <span class="input-group-text">Payer</span>
+            </th>
+            <th class="col-2">
+              <span class="input-group-text">Distributed Rate</span>
+            </th>
+        </tr>
+        </table>
+      </div>
+      <button class="btn btn-primary" id = "addExpense" type="button">Add</button>
+      <div class="my-3">
+        <button class="btn btn-primary" id = "submit" type="button">Submit</button>
+      </div>
+    </form>
+
+    <!-- Report Form -->
+    <div class="d-none" id="report">
+      <h3>Expenses Summary by Traveller</h3>
+      <table class="table" id="reportTable">
+      </table>
+      <h3>Expenses Summary by Date</h3>
+      <table class="table" id="reportCategoriesTable">
+      </table>
+    </div>
+  </div>
+</body>
+
+<!-- Customize distribution modal -->
+<div class="modal customModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Customize distribution for this expense</h4>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table class="table" id="distributionTable">
+        </table>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="cancelModal">Cancel</button>
+        <button type="button" class="btn btn-success" id="submitModal">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</html>

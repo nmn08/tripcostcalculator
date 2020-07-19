@@ -1,0 +1,11 @@
+body {
+  background-color: rgb(223, 234, 235);
+}
+h1 {
+  color: rgb(184, 108, 58);
+}
+
+.table td, .table th {
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
