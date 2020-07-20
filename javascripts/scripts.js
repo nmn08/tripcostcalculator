@@ -6,7 +6,7 @@ var expenses = [];
 var travellers = [];
 var totalExp = 0;
 var categories = [
-  {"name": "accomadation", "amount" : 0},
+  {"name": "accommodation", "amount" : 0},
   {"name": "transportation", "amount" : 0},
   {"name": "food", "amount" : 0},
   {"name": "activities", "amount" : 0},
@@ -28,14 +28,14 @@ $(document).ready(function(){
     newTextBoxRow.attr("class", "d-flex");
     console.log(newTextBoxRow);
     var addContent =
-    '<td class="col-2">'+
+    '<td class="col-10 col-lg-3">'+
       '<div class="input-group">'+
         '<input id = "name_'+ index +'" type="text" class="form-control">'+
       '</div>'+
     '</td>'+
-    '<td class="col-2">'+
+    '<td class="col-10 col-lg-3">'+
       '<div class="input-group-append">'+
-        '<button class="btn btn-danger deleteTraveller"  type="button">Remove This</button>'+
+        '<button class="btn btn-danger deleteTraveller"  type="button">Remove</button>'+
       '</div>'+
     '</td>'
 
@@ -109,13 +109,13 @@ $(document).ready(function(){
     });
     // Get information of all columns of the row 
     var addContent =
-            '<td class="col-2">'+
+            '<td class="col-3">'+
               '<input type="date" class="form-control inputVal" placeholder="mm/dd/yyyy">'+
             '</td>'+
             '<td class="col-2">'+
               '<select class="form-control category inputVal">'+
                 '<option selected disabled>Please Select</option>'+
-                '<option value = "accomadation">Accomadation</option>'+
+                '<option value = "accommodation">Accommodation</option>'+
                 '<option value = "transportation">Transportation</option>'+
                 '<option value = "food">Food&Drink</option>'+
                 '<option value = "activities">Activities</option>'+
@@ -136,7 +136,7 @@ $(document).ready(function(){
             '</td>'+
             '<td class="col-2">'+
               '<div class="input-group-append">'+
-                '<button class="btn btn-danger deleteExp"  type="button">Remove This</button>'+
+                '<button class="btn btn-danger deleteExp"  type="button">Remove</button>'+
               '</div>'+
             '</td>';
     // Add the information to the row element
@@ -185,7 +185,7 @@ $(document).ready(function(){
     $(categoryTable).html(
       '<tr>'+
         '<th>Date</th>'+
-        '<th>Accomadation</th>'+
+        '<th>Accommodation</th>'+
         '<th>Transportation</th>'+
         '<th>Food&Drink</th>'+
         '<th>Activities</th>'+
@@ -198,7 +198,7 @@ $(document).ready(function(){
       var newTextBoxRow = $(document.createElement('tr')).attr("id", 'summaryDateRow_' + jIndex);
       var addContent = 
         '<td>'+formatedDate(date.date)+'</td>'+
-        '<td>$'+date.accomadation.toFixed(2)+'</td>'+
+        '<td>$'+date.accommodation.toFixed(2)+'</td>'+
         '<td>$'+date.transportation.toFixed(2)+'</td>'+
         '<td>$'+date.food.toFixed(2)+'</td>'+
         '<td>$'+date.activities.toFixed(2)+'</td>'+
@@ -416,7 +416,6 @@ function summaryExp() {
   travellers.forEach(traveller => {
     totalExp = parseFloat(totalExp) + parseFloat(traveller.totalPayOut);
   });
-  var avgCost = (totalExp/numPeople).toFixed(2);
   // Calculate the total rate of each expense
   expenses.forEach(expense => {
     var totalRate = 0;
@@ -462,7 +461,7 @@ function summaryDate() {
       if (i==0 || (sortedDate[i].date - sortedDate[i-1].date) !=0 ) {
         var newDate = {
           "date":sortedDate[i].date, 
-          "accomadation":0, 
+          "accommodation":0, 
           "transportation":0,
           "food":0, 
           "activities":0,
@@ -470,8 +469,8 @@ function summaryDate() {
           "total":0
         };
         switch(sortedDate[i].category) {
-          case "accomadation":
-            newDate.accomadation = parseFloat(newDate.accomadation) + parseFloat(sortedDate[i].amount);
+          case "accommodation":
+            newDate.accommodation = parseFloat(newDate.accommodation) + parseFloat(sortedDate[i].amount);
             break;
           case "transportation":
             newDate.transportation = parseFloat(newDate.transportation) + parseFloat(sortedDate[i].amount);
@@ -492,8 +491,8 @@ function summaryDate() {
       }
       else {
         switch(sortedDate[i].category) {
-          case "accomadation":
-            summarySortedDate[j-1].accomadation = parseFloat(summarySortedDate[j-1].accomadation) + parseFloat(sortedDate[i].amount);
+          case "accommodation":
+            summarySortedDate[j-1].accommodation = parseFloat(summarySortedDate[j-1].accommodation) + parseFloat(sortedDate[i].amount);
             break;
           case "transportation":
             summarySortedDate[j-1].transportation = parseFloat(summarySortedDate[j-1].transportation) + parseFloat(sortedDate[i].amount);

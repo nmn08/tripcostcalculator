@@ -4,8 +4,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="javascripts/scripts.js"></script>
-    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -36,29 +36,33 @@
         <input type="date" class="form-control" placeholder="mm/dd/yyyy">
       </div>
       <!-- Number of travelers -->   
+      <h3>List of Travellers</h3>
       <table class="table table-borderless" id="tableTravellers">
           <tr class="d-flex">
-              <th class="col-2">
-                <span class="input-group-text">List of Travellers</span>
+              <th class="col-10 col-lg-3">
+                <span class="input-group-text">Name</span>
               </th>
           </tr>
           <tr class="d-flex" id="per_1">
-            <td class="col-2">
+            <td class="col-10 col-lg-3">
               <div class="input-group">
                 <input id="name_1" type="text" class="form-control">
               </div>
             </td>
           </tr>
       </table>
-      <button class="btn btn-primary mx-auto my-auto" id = "addTraveller" type="button">Add</button>
-      <!-- <button class="btn btn-primary" id = "remTraveller" type="button">Remove</button> -->
-      <button class="btn btn-primary mx-auto my-auto" id = "updateTraveller" type="button">Update</button>
+      <div class="my-3">
+        <button class="btn btn-primary mx-auto mb-3" id = "addTraveller" type="button">Add New Traveller</button>
+        <br>
+        <!-- <button class="btn btn-primary" id = "remTraveller" type="button">Remove</button> -->
+        <button class="btn btn-primary mx-auto my-auto" id = "updateTraveller" type="button">Update Travellers' Info</button>
+      </div>
       <!-- Expense -->
       <h3>List of Expenses</h3>
       <div class="input-group mb-3">
         <table class="table table-borderless" id="tableExpense">
           <tr class="d-flex">
-            <th class="col-2">
+            <th class="col-3">
               <span class="input-group-text">Date</span>
             </th>
             <th class="col-2">
@@ -71,12 +75,12 @@
               <span class="input-group-text">Payer</span>
             </th>
             <th class="col-2">
-              <span class="input-group-text">Distributed Rate</span>
+              <span class="input-group-text">Distribution</span>
             </th>
         </tr>
         </table>
       </div>
-      <button class="btn btn-primary" id = "addExpense" type="button">Add</button>
+      <button class="btn btn-primary" id = "addExpense" type="button">Add New Expense</button>
       <div class="my-3">
         <button class="btn btn-primary" id = "submit" type="button">Submit</button>
       </div>
@@ -85,10 +89,10 @@
     <!-- Report Form -->
     <div class="d-none" id="report">
       <h3>Expenses Summary by Traveller</h3>
-      <table class="table" id="reportTable">
+      <table class="table table-responsive" id="reportTable">
       </table>
       <h3>Expenses Summary by Date</h3>
-      <table class="table" id="reportCategoriesTable">
+      <table class="table table-responsive" id="reportCategoriesTable">
       </table>
     </div>
   </div>

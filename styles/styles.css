@@ -1,11 +1,13 @@
 body {
-  background-color: rgb(223, 234, 235);
+  background-color: rgb(224, 224, 224);
 }
 h1 {
   color: rgb(184, 108, 58);
 }
 
 .table td, .table th {
+  padding-left: 0%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   vertical-align: top;
-  border-top: 1px solid #dee2e6;
 }
