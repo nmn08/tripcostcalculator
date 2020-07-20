@@ -123,7 +123,7 @@ $(document).ready(function(){
               '</select>'+
             '</td>'+
             '<td class="col-2">'+
-              '<input type="number" class="form-control inputVal" value="0.00" min="0.00" step="0.01">'+
+              '<input type="number" class="form-control inputVal" placeholder="0.00" min="0.00" step="0.01">'+
             '</td>'+
             '<td class="col-2">'+
               '<select class="form-control payers inputVal">'+
